@@ -1,0 +1,7 @@
+
+
+# get predicition for next 1 or 2 months equal to last year
+# get prediction for next 1 or 2 months by prophet
+# get predicition for next 1 or 2 months based on trends
+
+# generator of pedidos excel

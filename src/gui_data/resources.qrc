@@ -1,0 +1,21 @@
+<RCC>
+  <qresource prefix="logo">
+    <file>images/AAlogo.png</file>
+  </qresource>
+  <qresource prefix="button">
+    <file>images/backIcon.png</file>
+    <file>images/nextIcon.png</file>
+  </qresource>
+  <qresource prefix="icon">
+    <file>images/homeIcon2.png</file>
+    <file>images/homeIcon.png</file>
+    <file>images/confirmedIcon.png</file>
+    <file>images/searchInactiveIcon.png</file>
+    <file>images/analysisIcon.png</file>
+    <file>images/settingsIcon.png</file>
+    <file>images/invoiceIcon.png</file>
+    <file>images/configIcon.png</file>
+    <file>images/statisticsIcon.png</file>
+    <file>images/listIcon.png</file>
+  </qresource>
+</RCC>

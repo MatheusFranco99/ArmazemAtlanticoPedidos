@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Statistics</class>
+ <widget class="QMainWindow" name="Statistics">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Statistics</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="gui_data/resources.qrc">
+    <normaloff>:/icon/images/analysisIcon.png</normaloff>:/icon/images/analysisIcon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="Header">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+background-color: rgb(23, 27, 26);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QFrame" name="HeaderFrame">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QFrame" name="AALogo">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">image: url(:/logo/images/AAlogo.png);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="StatisticsLabel">
+            <property name="font">
+             <font>
+              <family>.SF Compact</family>
+              <pointsize>32</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(58, 63, 67);</string>
+            </property>
+            <property name="text">
+             <string>Estatísticas</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="HeaderEmpty">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="Body">
+      <property name="styleSheet">
+       <string notr="true">
+background-color: rgb(40, 47, 44);
+
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="BodyFrame">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QLabel" name="ChooseAProductLabel">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>.SF Compact</family>
+              <pointsize>18</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(226, 222, 230)</string>
+            </property>
+            <property name="text">
+             <string>Estatísticas do Produto:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QScrollArea" name="scrollArea">
+            <property name="styleSheet">
+             <string notr="true">/* Vertical */
+QScrollBar:vertical {
+	border: none;
+	background-color:rgb(205, 207, 207);
+	width: 14px;
+	margin: 15px 0 15px 0;
+	boder-radius:0px;
+}
+QScrollBar::handle:vertical {
+	background-color: rgb(192, 194, 194);
+	min-height: 30px;
+	border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover {
+	background-color: rgb(15, 128, 255);
+}
+QScrollBar::handle:vertical:pressed {
+	background-color: rgb(13, 117, 235);
+}
+
+QScrollBar::sub-line:vertical {
+	border: none;
+	background-color:rgb(192, 194, 194);
+	height: 15px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical:hover {
+	background-color: rgb(15, 128, 255);
+}
+
+QScrollBar::sub-line:vertical:pressed {
+	background-color:rgb(13, 117, 235);
+}
+
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color:rgb(192, 194, 194);
+	height: 15px;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical:hover {
+	background-color: rgb(15, 128, 255);
+}
+
+QScrollBar::add-line:vertical:pressed {
+	background-color:rgb(13, 117, 235);
+}
+
+QScrollBar::up-arrow:vertical, QScrollBar:down-arrow:vertical {
+	background:none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar:sub-page:vertical {
+	background:none;
+}
+
+
+/* Horizontal */
+QScrollBar:horizontal {
+	border: none;
+	background-color:rgb(205, 207, 207);
+	width: 14px;
+	margin: 15px 0 15px 0;
+	boder-radius:0px;
+}
+QScrollBar::handle:horizontal {
+	background-color: rgb(192, 194, 194);
+	min-height: 30px;
+	border-radius: 7px;
+}
+QScrollBar::handle:horizontal:hover {
+	background-color: rgb(15, 128, 255);
+}
+QScrollBar::handle:horizontal:pressed {
+	background-color: rgb(13, 117, 235);
+}
+
+QScrollBar::sub-line:horizontal {
+	border: none;
+	background-color:rgb(192, 194, 194);
+	height: 15px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal:hover {
+	background-color: rgb(15, 128, 255);
+}
+
+QScrollBar::sub-line:horizontal:pressed {
+	background-color:rgb(13, 117, 235);
+}
+
+QScrollBar::add-line:horizontal {
+	border: none;
+	background-color:rgb(192, 194, 194);
+	height: 15px;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:horizontal:hover {
+	background-color: rgb(15, 128, 255);
+}
+
+QScrollBar::add-line:horizontal:pressed {
+	background-color:rgb(13, 117, 235);
+}
+
+QScrollBar::up-arrow:horizontal, QScrollBar:down-arrow:vertical {
+	background:none;
+}
+
+QScrollBar::add-page:horizontal, QScrollBar:sub-page:vertical {
+	background:none;
+}
+</string>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollAreaWidgetContents">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>750</width>
+               <height>2524</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <widget class="QFrame" name="BodyBodyFrame">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>2500</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="BottomButtons">
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QPushButton" name="HomeButton">
+               <property name="minimumSize">
+                <size>
+                 <width>35</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>35</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+
+	background-color: rgb(218, 215, 224);
+	border-radius: 7px;
+}
+
+QPushButton:hover {
+	background-color: rgb(190, 190, 190);
+
+}
+QPushButton:pressed {
+	background-color: rgb(160, 160, 160);
+
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="gui_data/resources.qrc">
+                 <normaloff>:/icon/images/homeIcon2.png</normaloff>:/icon/images/homeIcon2.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="Bottom">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+background-color: rgb(23, 27, 26);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="gui_data/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
