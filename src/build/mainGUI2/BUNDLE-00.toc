@@ -1,0 +1,3 @@
+([('mainGUI2',
+   '/Users/matheusfranco/Documents/Academica/Computacao/ArmazemAtlanticoPedidos/src/dist/mainGUI2',
+   'EXECUTABLE')],)
