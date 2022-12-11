@@ -11,7 +11,7 @@ from openpyxl import load_workbook
 from openpyxl.styles import Font, Color, PatternFill
 
 
-PEDIDO_FINAL_TEMPLATE_FILE = "data/PedidoFinalTemplate.xlsx"
+PEDIDO_FINAL_TEMPLATE_FILE = ".data/PedidoFinalTemplate.xlsx"
 
 
 class PedidoFinalCreator:
@@ -21,7 +21,7 @@ class PedidoFinalCreator:
         
         # process filename
         if filename == PEDIDO_FINAL_TEMPLATE_FILE:
-            filename = "data/PedidoTemplate1.xlsx"
+            filename = ".data/PedidoTemplate1.xlsx"
 
         if filename[-5:] != ".xlsx":
             filename = filename + ".xlsx"

@@ -3,7 +3,7 @@ import math
 
 class UnidadesPorCaixaReader:
 
-    def __init__(self, filename = 'data/UnidadesPorCaixa.xlsx',sheetName = 'UnidadesPorCaixa'):
+    def __init__(self, filename = '.data/UnidadesPorCaixa.xlsx',sheetName = 'UnidadesPorCaixa'):
         self.df = pd.read_excel(filename, sheet_name = sheetName)
 
         ID_COLUMN = 'ref.'

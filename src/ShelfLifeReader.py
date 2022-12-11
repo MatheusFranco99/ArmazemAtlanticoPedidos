@@ -3,7 +3,7 @@ import math
 
 class ShelfLifeReader:
 
-    def __init__(self, filename = 'data/ShelfLife.xlsx',sheetName = 'ShelfLife'):
+    def __init__(self, filename = '.data/ShelfLife.xlsx',sheetName = 'ShelfLife'):
         self.df = pd.read_excel(filename, sheet_name = sheetName)
 
         ID_COLUMN = 'ref.'

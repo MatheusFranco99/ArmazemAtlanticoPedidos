@@ -6,7 +6,7 @@ class ConfigEditor:
     def update(lst):
 
         # load workbooks and sheets
-        workbook = load_workbook(filename="data/ItemBoxDetail.xlsx")
+        workbook = load_workbook(filename=".data/ItemBoxDetail.xlsx")
 
         sheet = workbook['ItemBoxDetail']
 
@@ -47,4 +47,4 @@ class ConfigEditor:
             sheet['Q'+rowStr] = elm[16]
             sheet['R'+rowStr] = elm[17]
         
-        workbook.save(filename="data/ItemBoxDetail.xlsx")
+        workbook.save(filename=".data/ItemBoxDetail.xlsx")

@@ -828,17 +828,17 @@ itemsInTransaction = {}
 statisticsLayout = None
 
 # ui
-mainUI = UI("mainWindow.ui")
-newRequestPackingList = UI("novoPedidoPackingList.ui")
-newRequestPackingListItems = UI("novoPedidoPackingListItems.ui")
-newRequestItems = UI("novoPedidoItems.ui")
-newRequestModels = UI("novoPedidoModels.ui")
-newRequestGenerating = UI("novoPedidoGenerating.ui")
-newRequestDone = UI("novoPedidoDone.ui")
-searchInactives = UI("searchInactives.ui")
-configuration = UI("Configuration.ui")
-statisticsChoose = UI("StatisticsChoose.ui")
-statisticsUi = UI("Statistics.ui")
+mainUI = UI(".ui/mainWindow.ui")
+newRequestPackingList = UI(".ui/novoPedidoPackingList.ui")
+newRequestPackingListItems = UI(".ui/novoPedidoPackingListItems.ui")
+newRequestItems = UI(".ui/novoPedidoItems.ui")
+newRequestModels = UI(".ui/novoPedidoModels.ui")
+newRequestGenerating = UI(".ui/novoPedidoGenerating.ui")
+newRequestDone = UI(".ui/novoPedidoDone.ui")
+searchInactives = UI(".ui/searchInactives.ui")
+configuration = UI(".ui/Configuration.ui")
+statisticsChoose = UI(".ui/StatisticsChoose.ui")
+statisticsUi = UI(".ui/Statistics.ui")
 
 # main buttons
 mainUI.NewRequestButton.clicked.connect(lambda: openNewWindow(mainUI,newRequestPackingList))

@@ -3,7 +3,7 @@ import math
 
 class ConfigReader:
 
-    def __init__(self, filename = 'data/ItemBoxDetail.xlsx',sheetName = 'ItemBoxDetail'):
+    def __init__(self, filename = '.data/ItemBoxDetail.xlsx',sheetName = 'ItemBoxDetail'):
         self.df = pd.read_excel(filename, sheet_name = sheetName)
 
         ID_COLUMN = 'Ref.'

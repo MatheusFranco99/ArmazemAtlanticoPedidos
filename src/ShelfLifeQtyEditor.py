@@ -8,8 +8,8 @@ class ShelfLifeQtyEditor:
         # shelfLife and qtd may be None
 
         # load workbooks and sheets
-        sl_workbook = load_workbook(filename="data/ShelfLife.xlsx")
-        q_workbook = load_workbook(filename="data/UnidadesPorCaixa.xlsx")
+        sl_workbook = load_workbook(filename=".data/ShelfLife.xlsx")
+        q_workbook = load_workbook(filename=".data/UnidadesPorCaixa.xlsx")
 
         sl_sheet = sl_workbook['ShelfLife']
         q_sheet = q_workbook['UnidadesPorCaixa']
@@ -65,5 +65,5 @@ class ShelfLifeQtyEditor:
                 except:
                     pass
         
-        sl_workbook.save(filename="data/ShelfLife.xlsx")
-        q_workbook.save(filename="data/UnidadesPorCaixa.xlsx")
+        sl_workbook.save(filename=".data/ShelfLife.xlsx")
+        q_workbook.save(filename=".data/UnidadesPorCaixa.xlsx")

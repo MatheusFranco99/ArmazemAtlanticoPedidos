@@ -39,17 +39,17 @@ class ItemGenerator:
         self.items = {}
         self.lastDate = None
 
-        fileExists = os.path.isfile('itemgen.pkl')
+        fileExists = os.path.isfile('.data/itemgen.pkl')
         if fileExists:
             self.load()
         
     def load(self):
-        with open('itemgen.pkl','rb') as f:
+        with open('.data/itemgen.pkl','rb') as f:
             self.items = pickle.load(f)
             self.lastDate = pickle.load(f)
     
     def save(self):
-        with open('itemgen.pkl','wb') as f:
+        with open('.data/itemgen.pkl','wb') as f:
             pickle.dump(self.items,f)
             pickle.dump(self.lastDate,f)
     
