@@ -1,4 +1,4 @@
-from prophet import Prophet
+# from prophet import Prophet
 import pandas as pd
 from datetime import datetime
 from Day import *
@@ -45,9 +45,10 @@ class ProphetDemandEstimator:
         d = {'ds':list(df['date']),'y':list(df['sale'])}
         df = pd.DataFrame(d)
         df.reset_index(level=0, inplace=True)
-        prophet_basic = Prophet()
-        prophet_basic.fit(df)
-        return prophet_basic
+        # prophet_basic = Prophet()
+        # prophet_basic.fit(df)
+        # return prophet_basic
+        return None
 
     @staticmethod
     def estimate(prophet_basic,months):

@@ -535,45 +535,45 @@ def generateRequest():
 
 
 
-    if FBP2020:
-        newRequestGenerating.LogLabel.setText("Log: Estimating with Facebook Prophet 2020. Item:")
-        t = threading.Thread(target=lambda: pdc.populateProphetPrediction(items,docType,datetime(2020,1,1)), args=())
-        t.start()
-        while(t.is_alive()):
-            state = pdc.getProgressState()
-            row = state[0]-1
-            total = state[1]
-            newRequestGenerating.LogLabel.setText("Log: Estimating with Facebook Prophet 2020. Item:" + str(row) + ".")
+    # if FBP2020:
+    #     newRequestGenerating.LogLabel.setText("Log: Estimating with Facebook Prophet 2020. Item:")
+    #     t = threading.Thread(target=lambda: pdc.populateProphetPrediction(items,docType,datetime(2020,1,1)), args=())
+    #     t.start()
+    #     while(t.is_alive()):
+    #         state = pdc.getProgressState()
+    #         row = state[0]-1
+    #         total = state[1]
+    #         newRequestGenerating.LogLabel.setText("Log: Estimating with Facebook Prophet 2020. Item:" + str(row) + ".")
             
-            value = row/total * 100/totalSteps + (100/totalSteps) * (currentStep-1)
-            newRequestGenerating.progressBar.setValue(int(value))
-            QCoreApplication.processEvents()
-        currentStep+=1
-    if FBP2020:
-        requestBoxesMap = pdc.getProphetPrediction(datetime(2020,1,1))
-        pedidoFinalFilename = insertSuffix(filename,"A.A.FBP2020",".xlsx")
-        pfc = PedidoFinalCreator(filename=pedidoFinalFilename)
-        pfc.addItems(items,requestBoxesMap)
+    #         value = row/total * 100/totalSteps + (100/totalSteps) * (currentStep-1)
+    #         newRequestGenerating.progressBar.setValue(int(value))
+    #         QCoreApplication.processEvents()
+    #     currentStep+=1
+    # if FBP2020:
+    #     requestBoxesMap = pdc.getProphetPrediction(datetime(2020,1,1))
+    #     pedidoFinalFilename = insertSuffix(filename,"A.A.FBP2020",".xlsx")
+    #     pfc = PedidoFinalCreator(filename=pedidoFinalFilename)
+    #     pfc.addItems(items,requestBoxesMap)
 
-    if FBP2021:
-        newRequestGenerating.LogLabel.setText("Log: Estimating with Facebook Prophet 2021. Item:")
-        t = threading.Thread(target=lambda: pdc.populateProphetPrediction(items,docType,datetime(2021,1,1)), args=())
-        t.start()
-        while(t.is_alive()):
-            state = pdc.getProgressState()
-            row = state[0]-1
-            total = state[1]
-            newRequestGenerating.LogLabel.setText("Log: Estimating with Facebook Prophet 2021. Item:" + str(row) + ".")
+    # if FBP2021:
+    #     newRequestGenerating.LogLabel.setText("Log: Estimating with Facebook Prophet 2021. Item:")
+    #     t = threading.Thread(target=lambda: pdc.populateProphetPrediction(items,docType,datetime(2021,1,1)), args=())
+    #     t.start()
+    #     while(t.is_alive()):
+    #         state = pdc.getProgressState()
+    #         row = state[0]-1
+    #         total = state[1]
+    #         newRequestGenerating.LogLabel.setText("Log: Estimating with Facebook Prophet 2021. Item:" + str(row) + ".")
             
-            value = row/total * 100/totalSteps + (100/totalSteps) * (currentStep-1)
-            newRequestGenerating.progressBar.setValue(int(value))
-            QCoreApplication.processEvents()
-        currentStep+=1
-    if FBP2021:
-        requestBoxesMap = pdc.getProphetPrediction(datetime(2021,1,1))
-        pedidoFinalFilename = insertSuffix(filename,"A.A.FBP2021",".xlsx")
-        pfc = PedidoFinalCreator(filename=pedidoFinalFilename)
-        pfc.addItems(items,requestBoxesMap)
+    #         value = row/total * 100/totalSteps + (100/totalSteps) * (currentStep-1)
+    #         newRequestGenerating.progressBar.setValue(int(value))
+    #         QCoreApplication.processEvents()
+    #     currentStep+=1
+    # if FBP2021:
+    #     requestBoxesMap = pdc.getProphetPrediction(datetime(2021,1,1))
+    #     pedidoFinalFilename = insertSuffix(filename,"A.A.FBP2021",".xlsx")
+    #     pfc = PedidoFinalCreator(filename=pedidoFinalFilename)
+    #     pfc.addItems(items,requestBoxesMap)
 
     pdc.close()
     filename = pdc.filename

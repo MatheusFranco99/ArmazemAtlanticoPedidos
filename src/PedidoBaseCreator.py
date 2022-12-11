@@ -6,7 +6,7 @@ from Day import *
 from ExcelLetters import *
 from DemandEstimator import *
 import math
-from ProphetDemandEstimator import *
+# from ProphetDemandEstimator import *
 from ProgressBar import *
 
 ID_COL = 0
@@ -209,79 +209,79 @@ class PedidoBaseCreator:
         return self.M6M3BoxesMap
     
 
-    def populateProphetPrediction(self,items,typeDoc,startDate):
+    # def populateProphetPrediction(self,items,typeDoc,startDate):
 
 
-        # Prophet: consumo esperado em 2 meses, stock provavel em 2 meses, consumo esperado em shelflife meses após 2 meses, stock ideal daqui a 2 meses, pedido em unidades, pedido em caixas
+    #     # Prophet: consumo esperado em 2 meses, stock provavel em 2 meses, consumo esperado em shelflife meses após 2 meses, stock ideal daqui a 2 meses, pedido em unidades, pedido em caixas
 
 
-        c1 = self.CURRENT_COL
-        c2 = ExcelLetters.increase(c1)
-        c3 = ExcelLetters.increase(c2)
-        c4 = ExcelLetters.increase(c3)
-        c5 = ExcelLetters.increase(c4)
-        c6 = ExcelLetters.increase(c5)
+    #     c1 = self.CURRENT_COL
+    #     c2 = ExcelLetters.increase(c1)
+    #     c3 = ExcelLetters.increase(c2)
+    #     c4 = ExcelLetters.increase(c3)
+    #     c5 = ExcelLetters.increase(c4)
+    #     c6 = ExcelLetters.increase(c5)
 
-        self.CURRENT_COL = ExcelLetters.increaseN(self.CURRENT_COL,7)
+    #     self.CURRENT_COL = ExcelLetters.increaseN(self.CURRENT_COL,7)
 
-        self.worksheet.merge_range(f'{c1}1:{c5}1',f'Facebook Prophet Estimator (since {startDate.strftime("%d/%m/%Y")})',self.columnNameFormat)
+    #     self.worksheet.merge_range(f'{c1}1:{c5}1',f'Facebook Prophet Estimator (since {startDate.strftime("%d/%m/%Y")})',self.columnNameFormat)
 
-        self.worksheet.write_string(f'{c1}2', 'Consumo esperado em 2 meses', self.columnNameFormat)
-        self.worksheet.write_string(f'{c2}2', 'Stock estimado daqui a 2 meses', self.columnNameFormat)
-        self.worksheet.write_string(f'{c3}2', 'Consumo esperado em (ShelfLife) meses após 2 meses', self.columnNameFormat)
-        self.worksheet.write_string(f'{c4}2', 'Stock ideal daqui a 2 meses', self.columnNameFormat)
-        self.worksheet.write_string(f'{c5}2', 'Pedido em unidades', self.columnNameFormat)
-        self.worksheet.write_string(f'{c6}2', 'Pedido em caixas', self.columnNameFormat)
+    #     self.worksheet.write_string(f'{c1}2', 'Consumo esperado em 2 meses', self.columnNameFormat)
+    #     self.worksheet.write_string(f'{c2}2', 'Stock estimado daqui a 2 meses', self.columnNameFormat)
+    #     self.worksheet.write_string(f'{c3}2', 'Consumo esperado em (ShelfLife) meses após 2 meses', self.columnNameFormat)
+    #     self.worksheet.write_string(f'{c4}2', 'Stock ideal daqui a 2 meses', self.columnNameFormat)
+    #     self.worksheet.write_string(f'{c5}2', 'Pedido em unidades', self.columnNameFormat)
+    #     self.worksheet.write_string(f'{c6}2', 'Pedido em caixas', self.columnNameFormat)
 
 
-        print("Running Facebook Prophet Estimator for all items.")
-        pb = ProgressBar(len(items))
+    #     print("Running Facebook Prophet Estimator for all items.")
+    #     pb = ProgressBar(len(items))
 
-        self.ProphetPrediction[startDate] = {}
+    #     self.ProphetPrediction[startDate] = {}
 
-        self.total = len(items)
-        self.row = 1
-        for item in items:
-            self.row += 1
-            next2MonthsDemand = 0
-            stockEstimation = 0
-            nextShelfLifeDemand = 0
-            idealStock = 0
-            requestUnities = 0
-            requestBoxes = 0
-            try:
-                prophetModel = ProphetDemandEstimator.getModel(item,typeDoc,startDate=startDate)
-                next2MonthsDemand = ProphetDemandEstimator.estimate(prophetModel,2)
-                inTransit = 0
-                if item.ID in self.itemsInTransactionMap:
-                    inTransit = self.itemsInTransactionMap[item.ID]
-                stockEstimation = max(item.CurrentStock + inTransit - next2MonthsDemand + item.emTransito,0)
-                print(item.shelfLife+2)
-                nextShelfLifeDemand = ProphetDemandEstimator.estimate(prophetModel,int(item.shelfLife + 2)) - next2MonthsDemand
-                idealStock = nextShelfLifeDemand
-                requestUnities = max(idealStock - stockEstimation,0)
-                requestBoxes = math.ceil(requestUnities/item.unidadesPorCaixa)
-            except:
-                pass
+    #     self.total = len(items)
+    #     self.row = 1
+    #     for item in items:
+    #         self.row += 1
+    #         next2MonthsDemand = 0
+    #         stockEstimation = 0
+    #         nextShelfLifeDemand = 0
+    #         idealStock = 0
+    #         requestUnities = 0
+    #         requestBoxes = 0
+    #         try:
+    #             prophetModel = ProphetDemandEstimator.getModel(item,typeDoc,startDate=startDate)
+    #             next2MonthsDemand = ProphetDemandEstimator.estimate(prophetModel,2)
+    #             inTransit = 0
+    #             if item.ID in self.itemsInTransactionMap:
+    #                 inTransit = self.itemsInTransactionMap[item.ID]
+    #             stockEstimation = max(item.CurrentStock + inTransit - next2MonthsDemand + item.emTransito,0)
+    #             print(item.shelfLife+2)
+    #             nextShelfLifeDemand = ProphetDemandEstimator.estimate(prophetModel,int(item.shelfLife + 2)) - next2MonthsDemand
+    #             idealStock = nextShelfLifeDemand
+    #             requestUnities = max(idealStock - stockEstimation,0)
+    #             requestBoxes = math.ceil(requestUnities/item.unidadesPorCaixa)
+    #         except:
+    #             pass
 
-            row = self.itemRow[item.ID]
-            rowTxt = row+1
-            try:
-                self.worksheet.write_number(f'{c1}{rowTxt}',next2MonthsDemand,self.valueFormat)
-                self.worksheet.write_number(f'{c2}{rowTxt}',stockEstimation,self.valueFormat)
-                self.worksheet.write_number(f'{c3}{rowTxt}',nextShelfLifeDemand,self.valueFormat)
-                self.worksheet.write_number(f'{c4}{rowTxt}',idealStock,self.valueFormat)
-                self.worksheet.write_number(f'{c5}{rowTxt}',requestUnities,self.valueFormat)
-                self.worksheet.write_number(f'{c6}{rowTxt}',requestBoxes,self.valueFormat)
-            except:
-                pass
+    #         row = self.itemRow[item.ID]
+    #         rowTxt = row+1
+    #         try:
+    #             self.worksheet.write_number(f'{c1}{rowTxt}',next2MonthsDemand,self.valueFormat)
+    #             self.worksheet.write_number(f'{c2}{rowTxt}',stockEstimation,self.valueFormat)
+    #             self.worksheet.write_number(f'{c3}{rowTxt}',nextShelfLifeDemand,self.valueFormat)
+    #             self.worksheet.write_number(f'{c4}{rowTxt}',idealStock,self.valueFormat)
+    #             self.worksheet.write_number(f'{c5}{rowTxt}',requestUnities,self.valueFormat)
+    #             self.worksheet.write_number(f'{c6}{rowTxt}',requestBoxes,self.valueFormat)
+    #         except:
+    #             pass
 
-            self.ProphetPrediction[startDate][item.ID] = requestBoxes
+    #         self.ProphetPrediction[startDate][item.ID] = requestBoxes
 
-            pb.step()
+    #         pb.step()
     
-    def getProphetPrediction(self,startDate):
-        return self.ProphetPrediction[startDate]
+    # def getProphetPrediction(self,startDate):
+    #     return self.ProphetPrediction[startDate]
     
 
 

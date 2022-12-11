@@ -311,7 +311,7 @@ background-color: rgb(40, 47, 44);</string>
                    <string>Facebook Prophet desde 2021</string>
                   </property>
                   <property name="checked">
-                   <bool>true</bool>
+                   <bool>false</bool>
                   </property>
                  </widget>
                 </item>
