@@ -14,7 +14,7 @@ class DemandEstimator:
     @staticmethod
     def estimate(item,typeDoc):
 
-        m1 = item.getDemand(DemandEstimator.day1,DemandEstimator.day3,typeDoc)
-        m2 = item.getDemand(DemandEstimator.day2,DemandEstimator.day3,typeDoc)
+        m1 = item.getDemand(DemandEstimator.day1,DemandEstimator.day3,typeDoc)/6
+        m2 = item.getDemand(DemandEstimator.day2,DemandEstimator.day3,typeDoc)/3
         return (m1 + m2)/2
 
